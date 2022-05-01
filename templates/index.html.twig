@@ -13,14 +13,14 @@ source: https://www.w3schools.com/howto/howto_js_todolist.asp  (modified by netp
 <div class="header">
   <h2>My To Do List</h2>
   <form action="{{ path('todo_store') }}" method="POST">
-    <input type="text" id="myInput" placeholder="Task title..." />
+    <input type="text" id="title" name="title" placeholder="Task title..." />
     <button type="submit" class="addBtn">Add a task</button>
   </form>
 </div>
 
 <ul>
   {% for todoListItem in todoListItems %}
-    <li class="{{ todoListItem.status == 'done' ? 'checked' : '' }}">
+    <li class="{{ todoListItem.status ? 'checked' : '' }}">
       <a href="{{ path('todo_switch_status', {'id': todoListItem.id}) }}">
         <span class="task-list-item">{{ todoListItem.title }}</span>
       </a>
