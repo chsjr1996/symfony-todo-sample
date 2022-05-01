@@ -29,6 +29,7 @@ Some features will be added to allow explore more and more the Symfony capabilit
 
 - [x] Use Docker environment to development
 - [x] DB integration
+- [ ] Improve error handling (add flash messages, etc...)
 - [ ] Unit/Feature tests
   - [ ] Add some CI on this repository (Github Actions)
 - [ ] More complex tasks management
@@ -38,3 +39,5 @@ Some features will be added to allow explore more and more the Symfony capabilit
 - [ ] Improve frontend
   - [ ] Change design/layout (Tailwind or Bootstrap maybe?)
   - [ ] Refactor Twig templates (use Symfony Form Builder)
+
+... and more?
