@@ -12,6 +12,7 @@ Based on Udemy course [Symfony Web Development Complete Guide: Beginner To Advan
 ## Installation (docker)
 
 - `git clone https://github.com/chsjr1996/symfony-todo-sample.git`
+- `cd symfony-todo-sample`
 - `composer install`
 - `docker-compose up -d`
 - Now access the [http://localhost](http://localhost) url on the browser
