@@ -12,36 +12,22 @@ source: https://www.w3schools.com/howto/howto_js_todolist.asp  (modified by netp
 -->
 <div class="header">
   <h2>My To Do List</h2>
-  <form action="">
+  <form action="{{ path('todo_store') }}" method="POST">
     <input type="text" id="myInput" placeholder="Task title..." />
     <button type="submit" class="addBtn">Add a task</button>
   </form>
 </div>
 
 <ul>
-  <li>
-    <a href="done"> <span class="task-list-item">Do shopping </span> </a
-    ><a onclick="return confirm('Are you sure to delete?')" href="delete"><span class="close">X</span></a>
-  </li>
-  <li class="checked">
-    <a href="undone"> <span class="task-list-item">Buy eggs </span> </a
-    ><a onclick="return confirm('Are you sure to delete?')" href="delete"><span class="close">X</span></a>
-  </li>
-  <li>
-    <a href="done"> <span class="task-list-item">Meet John </span> </a
-    ><a onclick="return confirm('Are you sure to delete?')" href="delete"><span class="close">X</span></a>
-  </li>
-  <li>
-    <a href="done"> <span class="task-list-item">Read a book </span> </a
-    ><a onclick="return confirm('Are you sure to delete?')" href="delete"><span class="close">X</span></a>
-  </li>
-  <li>
-    <a href="done"> <span class="task-list-item">Learn Doctrine ORM </span> </a
-    ><a onclick="return confirm('Are you sure to delete?')" href="delete"><span class="close">X</span></a>
-  </li>
-  <li>
-    <a href="done"> <span class="task-list-item">Prepare a meal </span> </a
-    ><a onclick="return confirm('Are you sure to delete?')" href="delete"><span class="close">X</span></a>
-  </li>
+  {% for todoListItem in todoListItems %}
+    <li class="{{ todoListItem.status == 'done' ? 'checked' : '' }}">
+      <a href="{{ path('todo_switch_status', {'id': todoListItem.id}) }}">
+        <span class="task-list-item">{{ todoListItem.title }}</span>
+      </a>
+      <a onclick="return confirm('Are you sure to delete?')" href="{{ path('todo_delete', {'id': todoListItem.id}) }}">
+        <span class="close">X</span>
+      </a>
+    </li>
+  {% endfor %}
 </ul>
 {% endblock %}
